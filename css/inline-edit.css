@@ -1,0 +1,363 @@
+/* 페이지 편집 도구 */
+.page-edit-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 0 20px;
+}
+
+.edit-status {
+    margin-right: auto;
+    color: #766b5b;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+}
+
+.edit-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.edit-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 38px;
+    padding: 8px 16px;
+    border: 1px solid #b7a68e;
+    border-radius: 3px;
+    background: #f8f3e9;
+    color: #302a23;
+    font: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.edit-button:hover {
+    background: #eee4d2;
+    border-color: #843d32;
+}
+
+.save-edit-button {
+    background: #843d32;
+    border-color: #843d32;
+    color: #fffaf1;
+}
+
+.save-edit-button:hover {
+    background: #6e3028;
+    color: #fffaf1;
+}
+
+.secondary-edit-button {
+    background: transparent;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* 편집 모드에서 수정 가능한 글자 */
+.is-editing [data-editable] {
+    outline: 1px dashed #b18a58;
+    outline-offset: 4px;
+    border-radius: 2px;
+    cursor: text;
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+.is-editing [data-editable]:focus {
+    outline: 2px solid #843d32;
+    background-color: rgba(255, 250, 241, 0.8);
+}
+
+/* 편집 모드 안내 */
+.is-editing .edit-status {
+    color: #843d32;
+    font-weight: 600;
+}
+
+.image-edit-controls {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.image-edit-controls p {
+    margin-top: 6px;
+    color: #766b5b;
+    font-size: 0.75rem;
+}
+
+.image-select-button {
+    display: inline-flex;
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+    .page-edit-toolbar {
+        align-items: flex-start;
+    }
+
+    .edit-actions {
+        gap: 6px;
+    }
+
+    .edit-button {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    .edit-status {
+        align-self: center;
+    }
+}
+
+
+/* 서책 디자인에 어울리는 편집 도구 */
+.page-edit-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin: -12px 0 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d8cbb8;
+}
+
+.edit-status {
+    margin-right: auto;
+    color: #8b7b66;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+}
+
+.edit-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.edit-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    min-height: 32px;
+    padding: 6px 13px;
+
+    border: 1px solid #c8b6a0;
+    border-radius: 2px;
+    background: transparent;
+    color: #5a4637;
+
+    font-family: inherit;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.edit-button:hover {
+    background: #eee4d2;
+    border-color: #843d32;
+    color: #843d32;
+}
+
+.save-edit-button {
+    background: #843d32;
+    border-color: #843d32;
+    color: #fffaf1;
+}
+
+.save-edit-button:hover {
+    background: #6e3028;
+    border-color: #6e3028;
+    color: #fffaf1;
+}
+
+.secondary-edit-button {
+    border-color: #c8b6a0;
+    color: #766b5b;
+}
+
+@media (max-width: 600px) {
+    .page-edit-toolbar {
+        margin-top: -6px;
+        margin-bottom: 20px;
+    }
+
+    .edit-button {
+        min-height: 34px;
+        padding: 6px 11px;
+    }
+}
+
+
+/* 외형 기록 페이지의 편집 도구 */
+.appearance-page .page-edit-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin: 0 0 24px;
+    padding: 0 0 10px;
+    border-bottom: 1px solid #d8cbb8;
+}
+
+.appearance-page .edit-status {
+    margin-right: auto;
+    color: #8b7b66;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+}
+
+.appearance-page .edit-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.appearance-page .edit-button {
+    min-height: 32px;
+    padding: 6px 13px;
+    font-size: 0.82rem;
+}
+
+.appearance-page .is-editing [data-editable] {
+    outline: 1px dashed #b18a58;
+    outline-offset: 4px;
+    border-radius: 2px;
+    cursor: text;
+    user-select: text;
+}
+
+.appearance-page .is-editing [data-editable]:focus {
+    outline: 2px solid #843d32;
+    background-color: rgba(255, 250, 241, 0.8);
+}
+
+.appearance-page .image-edit-controls {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.appearance-page .image-select-button {
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.appearance-page .is-editing .image-edit-controls[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    .appearance-page .page-edit-toolbar {
+        margin-bottom: 20px;
+    }
+
+    .appearance-page .edit-button {
+        min-height: 34px;
+        padding: 6px 11px;
+    }
+}
+
+
+/* 동적으로 추가·삭제하는 항목 편집 도구 */
+.dynamic-item-controls {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 5px;
+    margin-top: 6px;
+}
+
+.dynamic-item-controls[hidden],
+.add-item-button[hidden],
+.image-edit-controls[hidden] {
+    display: none !important;
+}
+
+.item-move-button,
+.item-delete-button,
+.add-item-button {
+    min-height: 28px;
+    padding: 4px 9px;
+    font-size: 0.76rem;
+}
+
+.item-delete-button {
+    border-color: #b78c80;
+    color: #843d32;
+}
+
+.add-item-button {
+    margin-top: 12px;
+}
+
+.profile-page .information-item,
+.appearance-page .appearance-info-item {
+    min-width: 0;
+}
+
+.profile-page .information-item dt[contenteditable="true"],
+.appearance-page .appearance-info-item dt[contenteditable="true"] {
+    outline: 1px dashed #b18a58;
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.appearance-page .appearance-info-item {
+    position: relative;
+}
+
+.appearance-page .appearance-info-item .dynamic-item-controls {
+    grid-column: 1 / -1;
+}
+
+.appearance-page .appearance-gallery > .add-item-button {
+    display: block;
+    margin: 14px 0 0 auto;
+}
+
+.appearance-page .appearance-image-card {
+    min-width: 0;
+}
+
+.appearance-page .appearance-image-card .image-edit-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.appearance-page .appearance-image-card .image-edit-controls[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    .dynamic-item-controls {
+        gap: 4px;
+    }
+
+    .item-move-button,
+    .item-delete-button,
+    .add-item-button {
+        min-height: 30px;
+        padding: 5px 8px;
+    }
+}

@@ -1,0 +1,658 @@
+
+/* ========================================
+   인물록 - 인적 사항 페이지
+   고전 서책 / 인물 도감형
+   ======================================== */
+
+.profile-page {
+    --profile-ink: #302a23;
+    --profile-muted: #827667;
+    --profile-line: #c9bba5;
+    --profile-paper: #f8f3e9;
+    --profile-paper-deep: #eee4d2;
+    --profile-accent: #843d32;
+
+    color: var(--profile-ink);
+}
+
+.profile-page a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.profile-page .main-nav a.active {
+    color: var(--profile-accent);
+    border-bottom: 1px solid var(--profile-accent);
+}
+
+/* 본문 전체 */
+
+.profile-main {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 32px 40px 48px;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   1. 대표 문구
+   ======================================== */
+
+.signature-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    margin: 8px auto 38px;
+    padding: 12px 30px;
+    box-sizing: border-box;
+
+    text-align: center;
+}
+
+.signature-text {
+    margin: 0;
+    max-width: 850px;
+
+    font-family: "Noto Serif KR", "Batang", "바탕", serif;
+    font-size: clamp(17px, 2.2vw, 23px);
+    line-height: 1.9;
+    letter-spacing: 0.05em;
+
+    overflow-wrap: anywhere;
+}
+
+.signature-quote {
+    color: var(--profile-accent);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    line-height: 1;
+}
+
+.signature-open {
+    margin-bottom: 7px;
+}
+
+.signature-close {
+    margin-top: 7px;
+}
+
+/* ========================================
+   2. 페이지 제목
+   ======================================== */
+
+.profile-heading {
+    text-align: center;
+    margin: 8px 0 36px;
+}
+
+.profile-eyebrow {
+    margin: 0 0 10px;
+    color: var(--profile-muted);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+}
+
+.profile-heading h1 {
+    margin: 0;
+    font-family: "Noto Serif KR", "Batang", "바탕", serif;
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 500;
+    letter-spacing: 0.16em;
+}
+
+.profile-heading-description {
+    margin: 13px 0 0;
+    color: var(--profile-muted);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+}
+
+.profile-title-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 150px;
+    margin: 23px auto 0;
+    color: var(--profile-accent);
+}
+
+.profile-title-decoration span:not(.decoration-diamond) {
+    flex: 1;
+    height: 1px;
+    background: var(--profile-line);
+}
+
+.decoration-diamond {
+    font-size: 9px;
+}
+
+/* ========================================
+   3. 인물 도감 레이아웃
+   ======================================== */
+
+.character-dossier {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.78fr) minmax(0, 1.5fr);
+    gap: clamp(28px, 5vw, 58px);
+    align-items: start;
+
+    padding: 32px;
+    border: 1px solid var(--profile-line);
+    background: rgba(255, 252, 245, 0.38);
+
+    position: relative;
+}
+
+.character-dossier::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(201, 187, 165, 0.38);
+    pointer-events: none;
+}
+
+/* ========================================
+   4. 초상화
+   ======================================== */
+
+.portrait-column {
+    width: 100%;
+    max-width: 290px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.portrait-frame {
+    position: relative;
+    width: 100%;
+    padding: 9px;
+    box-sizing: border-box;
+    border: 1px solid var(--profile-line);
+    background: var(--profile-paper);
+}
+
+.profile-portrait {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center;
+    background: var(--profile-paper-deep);
+    filter: saturate(0.82) sepia(0.08);
+}
+
+.portrait-corner {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-color: var(--profile-accent);
+    border-style: solid;
+    pointer-events: none;
+}
+
+.portrait-corner-tl {
+    top: 4px;
+    left: 4px;
+    border-width: 1px 0 0 1px;
+}
+
+.portrait-corner-tr {
+    top: 4px;
+    right: 4px;
+    border-width: 1px 1px 0 0;
+}
+
+.portrait-corner-bl {
+    bottom: 4px;
+    left: 4px;
+    border-width: 0 0 1px 1px;
+}
+
+.portrait-corner-br {
+    bottom: 4px;
+    right: 4px;
+    border-width: 0 1px 1px 0;
+}
+
+.portrait-caption {
+    margin: 12px 0 0;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--profile-muted);
+}
+
+.portrait-seal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+
+    position: absolute;
+    right: -13px;
+    bottom: 30px;
+
+    width: 37px;
+    height: 54px;
+    box-sizing: border-box;
+
+    background: var(--profile-accent);
+    color: #f8eee0;
+    border: 2px solid #f8eee0;
+    outline: 1px solid var(--profile-accent);
+
+    font-family: "Noto Serif KR", "Batang", serif;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+/* ========================================
+   5. 이름과 핵심 정보
+   ======================================== */
+
+.character-information {
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.character-name-block {
+    padding: 2px 0 23px;
+    border-bottom: 1px solid var(--profile-line);
+}
+
+.section-kicker {
+    margin: 0 0 15px;
+    color: var(--profile-muted);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+}
+
+.character-name {
+    margin: 0;
+    font-family: "Noto Serif KR", "Batang", "바탕", serif;
+    font-size: clamp(25px, 3vw, 35px);
+    line-height: 1.4;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    overflow-wrap: anywhere;
+}
+
+.character-hanja,
+.character-epithet {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 12px 0 0;
+    font-size: 13px;
+    color: var(--profile-muted);
+}
+
+.field-label {
+    min-width: 34px;
+    color: var(--profile-accent);
+    font-family: "Noto Serif KR", "Batang", serif;
+    font-size: 12px;
+}
+
+.name-divider {
+    width: 35px;
+    height: 2px;
+    margin-top: 20px;
+    background: var(--profile-accent);
+}
+
+.character-epithet {
+    margin-top: 17px;
+}
+
+/* ========================================
+   6. 섹션 제목
+   ======================================== */
+
+.section-heading {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 17px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--profile-line);
+}
+
+.section-number {
+    color: var(--profile-accent);
+    font-family: "Noto Serif KR", "Batang", serif;
+    font-size: 16px;
+}
+
+.section-heading h2,
+.section-heading h3 {
+    margin: 0;
+    font-family: "Noto Serif KR", "Batang", "바탕", serif;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.section-heading-english {
+    margin-left: auto;
+    color: var(--profile-muted);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+}
+
+/* ========================================
+   7. 기본 정보
+   각 항목을 개별 칸으로 표시
+   ======================================== */
+
+.basic-information {
+    padding-top: 24px;
+}
+
+.information-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    margin: 0;
+}
+
+.information-item {
+    display: grid;
+    grid-template-columns: minmax(65px, 0.8fr) minmax(0, 1.3fr);
+    gap: 10px;
+    align-items: baseline;
+
+    min-width: 0;
+    padding: 13px 0;
+    border-bottom: 1px dashed rgba(201, 187, 165, 0.8);
+}
+
+.information-item dt {
+    color: var(--profile-muted);
+    font-size: 12px;
+    line-height: 1.6;
+    word-break: keep-all;
+}
+
+.information-item dd {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   8. 인물 소개
+   ======================================== */
+
+.profile-section {
+    margin-top: 30px;
+    padding: 27px 30px;
+    border: 1px solid var(--profile-line);
+    background: rgba(255, 252, 245, 0.25);
+}
+
+.introduction-content {
+    position: relative;
+    padding: 10px 22px 8px;
+}
+
+.introduction-content p {
+    margin: 0;
+    font-family: "Noto Serif KR", "Batang", "바탕", serif;
+    font-size: 14px;
+    line-height: 2.15;
+    letter-spacing: 0.015em;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.opening-mark,
+.closing-mark {
+    position: absolute;
+    color: var(--profile-accent);
+    font-family: "Noto Serif KR", "Batang", serif;
+    font-size: 27px;
+    line-height: 1;
+}
+
+.opening-mark {
+    top: 0;
+    left: 0;
+}
+
+.closing-mark {
+    right: 0;
+    bottom: -3px;
+}
+
+/* ========================================
+   9. 페이지 하단
+   ======================================== */
+
+.profile-footer {
+    padding-top: 32px;
+    text-align: center;
+    color: var(--profile-muted);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+}
+
+.footer-rule {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 17px;
+    background: var(--profile-line);
+}
+
+.profile-footer p {
+    margin: 6px 0;
+}
+
+.footer-page-number {
+    font-family: "Noto Serif KR", "Batang", serif;
+    font-size: 10px;
+}
+
+/* ========================================
+   10. 태블릿
+   ======================================== */
+
+@media (max-width: 900px) {
+    .profile-main {
+        padding: 28px 24px 40px;
+    }
+
+    .character-dossier {
+        grid-template-columns: minmax(190px, 0.75fr) minmax(0, 1.4fr);
+        gap: 28px;
+        padding: 25px;
+    }
+
+    .portrait-column {
+        max-width: 250px;
+    }
+
+    .information-list {
+        grid-template-columns: 1fr;
+    }
+
+    .information-item {
+        grid-template-columns: minmax(85px, 0.8fr) minmax(0, 1.5fr);
+    }
+
+    .profile-section {
+        padding: 24px;
+    }
+}
+
+/* ========================================
+   11. 모바일
+   ======================================== */
+
+@media (max-width: 600px) {
+    .profile-main {
+        padding: 24px 14px 32px;
+    }
+
+    .signature-section {
+        margin: 5px auto 28px;
+        padding: 10px 15px;
+    }
+
+    .signature-text {
+        font-size: 17px;
+        line-height: 1.9;
+    }
+
+    .signature-quote {
+        font-size: 30px;
+    }
+
+    .profile-heading {
+        margin: 5px 0 25px;
+    }
+
+    .profile-eyebrow {
+        font-size: 10px;
+    }
+
+    .profile-heading h1 {
+        font-size: 28px;
+    }
+
+    .profile-heading-description {
+        font-size: 12px;
+    }
+
+    .character-dossier {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 25px;
+        padding: 22px 18px;
+    }
+
+    .portrait-column {
+        width: 64%;
+        max-width: 235px;
+        min-width: 175px;
+    }
+
+    .portrait-seal {
+        right: -11px;
+        bottom: 27px;
+        width: 33px;
+        height: 48px;
+        font-size: 11px;
+    }
+
+    .character-name-block {
+        padding-bottom: 20px;
+    }
+
+    .character-name {
+        font-size: 28px;
+    }
+
+    .section-kicker {
+        font-size: 9px;
+    }
+
+    .basic-information {
+        padding-top: 22px;
+    }
+
+    .section-heading {
+        gap: 8px;
+    }
+
+    .section-heading h2,
+    .section-heading h3 {
+        font-size: 17px;
+    }
+
+    .section-heading-english {
+        font-size: 8px;
+    }
+
+    .information-list {
+        grid-template-columns: 1fr;
+    }
+
+    .information-item {
+        grid-template-columns: 90px minmax(0, 1fr);
+        gap: 12px;
+        padding: 12px 0;
+    }
+
+    .information-item dt {
+        font-size: 12px;
+    }
+
+    .information-item dd {
+        font-size: 13px;
+    }
+
+    .profile-section {
+        margin-top: 20px;
+        padding: 21px 17px;
+    }
+
+    .introduction-content {
+        padding: 9px 17px;
+    }
+
+    .introduction-content p {
+        font-size: 13px;
+        line-height: 2;
+    }
+
+    .profile-footer {
+        padding-top: 25px;
+    }
+}
+
+/* 작은 휴대전화 */
+
+@media (max-width: 360px) {
+    .profile-main {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .signature-text {
+        font-size: 15px;
+    }
+
+    .character-dossier {
+        padding: 18px 13px;
+    }
+
+    .portrait-column {
+        width: 70%;
+        min-width: 0;
+    }
+
+    .information-item {
+        grid-template-columns: 78px minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    .section-heading-english {
+        width: 100%;
+        margin-left: 26px;
+    }
+
+    .profile-section {
+        padding: 18px 13px;
+    }
+}

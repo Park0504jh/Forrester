@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <script src="js/admin-access.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성격과 특징 | 인물록</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/record-viewer.css">
+    <link rel="stylesheet" href="css/personality.css">
+    <link rel="stylesheet" href="css/inline-edit.css">
+
+    <script src="js/record-viewer.js" defer></script>
+    <script src="js/personality-page-editor.js" defer></script>
+</head>
+
+<body>
+    <div class="site-shell personality-page">
+
+        <header class="site-header">
+            <a href="index.html" class="site-title">
+                <span class="site-title-hanja">人物錄</span>
+                <span class="site-title-korean">인물록</span>
+            </a>
+
+            <nav class="main-nav" aria-label="주요 메뉴">
+                <a href="index.html">서고</a>
+                <a href="profile.html">인적 사항</a>
+                <a href="appearance.html">외형 기록</a>
+                <a href="personality.html" class="active" aria-current="page">성격과 특징</a>
+                <a href="story.html">생애와 서사</a>
+                <a href="relationships.html">인물 관계</a>
+            </nav>
+        </header>
+
+        <main class="personality-main">
+
+            <!-- 페이지 제목 -->
+            <section class="personality-heading">
+                <p class="personality-eyebrow">人物記錄 · 第三章</p>
+                <h1>성격과 특징</h1>
+                <p class="personality-heading-description">
+                    말과 행동에 드러나는 성정과 그 내면의 결을 기록하다.
+                </p>
+
+                <div class="personality-title-decoration" aria-hidden="true">
+                    <span></span>
+                    <span>◆</span>
+                    <span></span>
+                </div>
+            </section>
+
+            <!-- 페이지 편집 도구 -->
+            <div class="page-edit-toolbar">
+                <span class="edit-status" id="edit-status" role="status">
+                    열람 모드
+                </span>
+
+                <div class="edit-actions">
+                    <button type="button" id="edit-button" class="edit-button">
+                        ✎ 편집
+                    </button>
+
+                    <button type="button" id="cancel-button"
+                            class="edit-button secondary-edit-button" hidden>
+                        취소
+                    </button>
+
+                    <button type="button" id="save-button"
+                            class="edit-button save-edit-button" hidden>
+                        저장
+                    </button>
+                </div>
+            </div>
+
+            <!-- 二. 성격 키워드 -->
+            <section class="personality-section"
+                     aria-labelledby="keyword-section-title">
+
+                <div class="personality-section-heading">
+                    <span class="personality-section-number">一</span>
+                    <h2 id="keyword-section-title">성격 키워드</h2>
+                    <span class="personality-section-english">KEY PERSONALITY TRAITS</span>
+                </div>
+
+                <p class="personality-section-description">
+                    성격을 나타내는 단어와 그에 대한 상세한 설명
+                </p>
+
+                <div id="keyword-list" class="keyword-list">
+
+                    <article class="keyword-card">
+                        <div class="keyword-card-heading">
+                            <span class="keyword-mark" aria-hidden="true">記</span>
+                            <h3 class="editable-text" data-editable="keyword-title">냉정함</h3>
+                        </div>
+
+                        <p class="editable-text keyword-description"
+                           data-editable="keyword-description">감정에 휘둘리기보다 상황을 먼저 분석한다. 위급한 순간에도 침착하게 판단하지만, 때로는 타인의 감정을 헤아리지 못한다.</p>
+                    </article>
+
+                    <article class="keyword-card">
+                        <div class="keyword-card-heading">
+                            <span class="keyword-mark" aria-hidden="true">記</span>
+                            <h3 class="editable-text" data-editable="keyword-title">책임감</h3>
+                        </div>
+
+                        <p class="editable-text keyword-description"
+                           data-editable="keyword-description">자신이 맡은 일은 끝까지 완수하려 한다. 다른 사람에게 부담을 넘기는 것을 싫어해 혼자서 모든 것을 짊어지려는 경향이 있다.</p>
+                    </article>
+
+                </div>
+
+                <div class="add-item-area">
+                    <button type="button" class="add-item-button"
+                            id="add-keyword-button" hidden>
+                        + 키워드 추가
+                    </button>
+                </div>
+            </section>
+
+            <!-- 三. 장점과 단점 -->
+            <section class="personality-section"
+                     aria-labelledby="strength-weakness-title">
+
+                <div class="personality-section-heading">
+                    <span class="personality-section-number">二</span>
+                    <h2 id="strength-weakness-title">장점과 단점</h2>
+                    <span class="personality-section-english">STRENGTHS & WEAKNESSES</span>
+                </div>
+
+                <div class="strength-weakness-grid">
+
+                    <article class="trait-panel strength-panel">
+                        <h3><span aria-hidden="true">＋</span> 장점</h3>
+
+                        <p class="editable-text long-description"
+                           data-editable="strengths">이 인물이 가진 강점, 뛰어난 능력, 주변 사람들에게 긍정적인 영향을 주는 면모를 기록합니다.</p>
+                    </article>
+
+                    <article class="trait-panel weakness-panel">
+                        <h3><span aria-hidden="true">－</span> 단점</h3>
+
+                        <p class="editable-text long-description"
+                           data-editable="weaknesses">이 인물의 약점, 결점, 고쳐야 할 버릇이나 스스로도 극복하기 어려워하는 부분을 기록합니다.</p>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- 四. 세부 성향 -->
+            <section class="personality-section"
+                     aria-labelledby="tendency-section-title">
+
+                <div class="personality-section-heading">
+                    <span class="personality-section-number">三</span>
+                    <h2 id="tendency-section-title">세부 성향</h2>
+                    <span class="personality-section-english">BEHAVIORAL TENDENCIES</span>
+                </div>
+
+                <div id="tendency-list" class="detail-list">
+
+                    <article class="detail-card">
+                        <h3 class="editable-text" data-editable="tendency-title">대인관계</h3>
+                        <p class="editable-text long-description"
+                           data-editable="tendency-description">타인과 관계를 맺는 방식, 사람을 대하는 태도, 친밀도에 따른 행동의 차이를 기록합니다.</p>
+                    </article>
+
+                    <article class="detail-card">
+                        <h3 class="editable-text" data-editable="tendency-title">감정 표현</h3>
+                        <p class="editable-text long-description"
+                           data-editable="tendency-description">감정을 솔직하게 드러내는지, 감추는지, 화나거나 슬플 때 어떤 반응을 보이는지 기록합니다.</p>
+                    </article>
+
+                    <article class="detail-card">
+                        <h3 class="editable-text" data-editable="tendency-title">가치관과 신념</h3>
+                        <p class="editable-text long-description"
+                           data-editable="tendency-description">이 인물이 중요하게 생각하는 것, 절대 양보하지 않는 원칙과 삶의 기준을 기록합니다.</p>
+                    </article>
+
+                    <article class="detail-card">
+                        <h3 class="editable-text" data-editable="tendency-title">갈등 상황</h3>
+                        <p class="editable-text long-description"
+                           data-editable="tendency-description">갈등이나 위기에 직면했을 때의 태도, 판단 방식과 대처 방법을 기록합니다.</p>
+                    </article>
+
+                </div>
+
+                <div class="add-item-area">
+                    <button type="button" class="add-item-button"
+                            id="add-tendency-button" hidden>
+                        + 성향 항목 추가
+                    </button>
+                </div>
+            </section>
+
+            <!-- 五. 취향과 습관 -->
+            <section class="personality-section"
+                     aria-labelledby="preference-section-title">
+
+                <div class="personality-section-heading">
+                    <span class="personality-section-number">四</span>
+                    <h2 id="preference-section-title">취향과 습관</h2>
+                    <span class="personality-section-english">PREFERENCES & HABITS</span>
+                </div>
+
+                <div id="preference-list" class="detail-list">
+
+                    <article class="detail-card">
+                        <h3 class="editable-text" data-editable="preference-title">좋아하는 것</h3>
+                        <p class="editable-text long-description"
+                           data-editable="preference-description">좋아하는 음식, 장소, 분위기, 사람, 활동 등을 기록합니다.</p>
+                    </article>
+
+                    <article class="detail-card">
+                        <h3 class="editable-text" data-editable="preference-title">싫어하는 것</h3>
+                        <p class="editable-text long-description"
+                           data-editable="preference-description">싫어하는 대상, 꺼리는 상황, 불쾌감을 느끼는 행동 등을 기록합니다.</p>
+                    </article>
+
+                    <article class="detail-card">
+                        <h3 class="editable-text" data-editable="preference-title">말투와 버릇</h3>
+                        <p class="editable-text long-description"
+                           data-editable="preference-description">평소의 말투, 자주 사용하는 표현, 무의식적으로 하는 행동이나 습관을 기록합니다.</p>
+                    </article>
+
+                </div>
+
+                <div class="add-item-area">
+                    <button type="button" class="add-item-button"
+                            id="add-preference-button" hidden>
+                        + 취향·습관 항목 추가
+                    </button>
+                </div>
+            </section>
+
+            <!-- 六. 기타 특징 -->
+            <section class="personality-section"
+                     aria-labelledby="extra-section-title">
+
+                <div class="personality-section-heading">
+                    <span class="personality-section-number">五</span>
+                    <h2 id="extra-section-title">기타 특징</h2>
+                    <span class="personality-section-english">ADDITIONAL NOTES</span>
+                </div>
+
+                <div id="extra-list" class="detail-list">
+
+                    <article class="detail-card">
+                        <h3 class="editable-text" data-editable="extra-title">특이사항</h3>
+                        <p class="editable-text long-description"
+                           data-editable="extra-description">다른 항목에 포함되지 않는 특이한 성질이나 행동 패턴, 숨겨진 면모 등을 기록합니다.</p>
+                    </article>
+
+                </div>
+
+                <div class="add-item-area">
+                    <button type="button" class="add-item-button"
+                            id="add-extra-button" hidden>
+                        + 기타 항목 추가
+                    </button>
+                </div>
+            </section>
+
+            <!-- 별도 기록 편집기에서 작성한 추가 기록 -->
+            <section class="record-viewer"
+                     data-record-page="personality"
+                     hidden>
+            </section>
+
+            <!-- 페이지 하단 -->
+            <footer class="personality-footer">
+                <div class="personality-footer-rule"></div>
+                <p>人物錄 · 인물에 관한 기록</p>
+                <p class="personality-footer-page">第三章 · 性情</p>
+            </footer>
+
+        </main>
+    </div>
+</body>
+</html>

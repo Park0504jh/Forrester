@@ -1,0 +1,544 @@
+
+/* ========================================
+   인물록 - 외형 기록 페이지
+   고전 서책 / 반응형 디자인
+   ======================================== */
+
+.appearance-page {
+    --appearance-ink: #302a23;
+    --appearance-muted: #827667;
+    --appearance-line: #c9bba5;
+    --appearance-paper: #f8f3e9;
+    --appearance-paper-deep: #eee4d2;
+    --appearance-accent: #843d32;
+
+    color: var(--appearance-ink);
+}
+
+.appearance-page a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.appearance-page .main-nav a.active {
+    color: var(--appearance-accent);
+    border-bottom: 1px solid var(--appearance-accent);
+}
+
+/* 본문 전체 */
+
+.appearance-main {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 32px 40px 48px;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   1. 페이지 제목
+   ======================================== */
+
+.appearance-heading {
+    text-align: center;
+    margin: 8px 0 28px;
+}
+
+.appearance-eyebrow {
+    margin: 0 0 10px;
+    color: var(--appearance-muted);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+}
+
+.appearance-heading h1 {
+    margin: 0;
+    font-family: "Noto Serif KR", "Batang", "바탕", serif;
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 500;
+    letter-spacing: 0.16em;
+}
+
+.appearance-heading-description {
+    margin: 13px 0 0;
+    color: var(--appearance-muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.appearance-title-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 150px;
+    margin: 23px auto 0;
+    color: var(--appearance-accent);
+}
+
+.appearance-title-decoration span:not(:nth-child(2)) {
+    flex: 1;
+    height: 1px;
+    background: var(--appearance-line);
+}
+
+.appearance-title-decoration span:nth-child(2) {
+    font-size: 9px;
+}
+
+/* ========================================
+   2. 외형 대표 문구
+   ======================================== */
+
+.appearance-quote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+
+    margin: 0 auto 42px;
+    padding: 10px 24px;
+    text-align: center;
+}
+
+.appearance-quote p {
+    margin: 0;
+    max-width: 820px;
+    font-family: "Noto Serif KR", "Batang", "바탕", serif;
+    font-size: clamp(16px, 2vw, 21px);
+    line-height: 1.9;
+    letter-spacing: 0.04em;
+    overflow-wrap: anywhere;
+}
+
+.appearance-quote-mark {
+    color: var(--appearance-accent);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    line-height: 1;
+}
+
+/* ========================================
+   3. 섹션 공통 제목
+   ======================================== */
+
+.appearance-section-heading {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--appearance-line);
+}
+
+.appearance-section-heading h2 {
+    margin: 0;
+    font-family: "Noto Serif KR", "Batang", "바탕", serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.appearance-section-number {
+    color: var(--appearance-accent);
+    font-family: "Noto Serif KR", "Batang", serif;
+    font-size: 16px;
+}
+
+.appearance-section-english {
+    margin-left: auto;
+    color: var(--appearance-muted);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+}
+
+/* ========================================
+   4. 외형 도감 이미지
+   ======================================== */
+
+.appearance-gallery {
+    margin-bottom: 34px;
+}
+
+.appearance-image-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.appearance-image-card {
+    min-width: 0;
+    margin: 0;
+    padding: 15px;
+    border: 1px solid var(--appearance-line);
+    background: rgba(255, 252, 245, 0.35);
+}
+
+.appearance-image-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(201, 187, 165, 0.65);
+    background: var(--appearance-paper-deep);
+}
+
+.appearance-image-main .appearance-image-frame {
+    min-height: 300px;
+}
+
+.appearance-image-card:not(.appearance-image-main)
+    .appearance-image-frame {
+    min-height: 240px;
+}
+
+.appearance-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.appearance-image-main .appearance-image {
+    min-height: 300px;
+    object-fit: contain;
+}
+
+.appearance-image-card figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 14px;
+    text-align: center;
+}
+
+.image-caption-title {
+    font-family: "Noto Serif KR", "Batang", serif;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+}
+
+.image-caption-description {
+    color: var(--appearance-muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* ========================================
+   5. 외형 정보 섹션
+   ======================================== */
+
+.appearance-section {
+    margin-top: 32px;
+    padding: 27px 30px;
+    border: 1px solid var(--appearance-line);
+    background: rgba(255, 252, 245, 0.25);
+}
+
+/* 항목을 각각 독립된 칸으로 배치 */
+
+.appearance-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+    row-gap: 0;
+    margin: 0;
+}
+
+.appearance-info-item {
+    display: grid;
+    grid-template-columns: minmax(100px, 0.8fr) minmax(0, 1.5fr);
+    gap: 12px;
+    align-items: baseline;
+
+    min-width: 0;
+    padding: 15px 0;
+    border-bottom: 1px dashed rgba(201, 187, 165, 0.8);
+}
+
+.appearance-info-item dt {
+    color: var(--appearance-muted);
+    font-size: 12px;
+    line-height: 1.7;
+    word-break: keep-all;
+}
+
+.appearance-info-item dd {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   6. 전체적인 인상
+   ======================================== */
+
+.impression-content {
+    position: relative;
+    padding: 10px 24px;
+}
+
+.impression-content p {
+    margin: 0;
+    font-family: "Noto Serif KR", "Batang", "바탕", serif;
+    font-size: 14px;
+    line-height: 2.15;
+    letter-spacing: 0.015em;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.impression-mark {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    color: var(--appearance-accent);
+    font-family: "Noto Serif KR", "Batang", serif;
+    font-size: 26px;
+    line-height: 1;
+}
+
+.impression-mark-end {
+    top: auto;
+    right: 0;
+    bottom: -4px;
+    left: auto;
+}
+
+/* ========================================
+   7. 페이지 하단
+   ======================================== */
+
+.appearance-footer {
+    padding-top: 32px;
+    text-align: center;
+    color: var(--appearance-muted);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+}
+
+.appearance-footer-rule {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 17px;
+    background: var(--appearance-line);
+}
+
+.appearance-footer p {
+    margin: 6px 0;
+}
+
+.appearance-footer-page {
+    font-family: "Noto Serif KR", "Batang", serif;
+    font-size: 10px;
+}
+
+/* ========================================
+   8. 태블릿
+   ======================================== */
+
+@media (max-width: 900px) {
+    .appearance-main {
+        padding: 28px 24px 40px;
+    }
+
+    .appearance-image-grid {
+        gap: 16px;
+    }
+
+    .appearance-image-card {
+        padding: 11px;
+    }
+
+    .appearance-image-main .appearance-image-frame {
+        min-height: 250px;
+    }
+
+    .appearance-image-card:not(.appearance-image-main)
+        .appearance-image-frame {
+        min-height: 200px;
+    }
+
+    .appearance-section {
+        padding: 24px;
+    }
+
+    .appearance-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .appearance-info-item {
+        grid-template-columns: minmax(120px, 0.8fr) minmax(0, 1.5fr);
+    }
+}
+
+/* ========================================
+   9. 모바일
+   ======================================== */
+
+@media (max-width: 600px) {
+    .appearance-main {
+        padding: 24px 14px 32px;
+    }
+
+    .appearance-heading {
+        margin: 5px 0 24px;
+    }
+
+    .appearance-eyebrow {
+        font-size: 10px;
+    }
+
+    .appearance-heading h1 {
+        font-size: 28px;
+    }
+
+    .appearance-heading-description {
+        font-size: 12px;
+    }
+
+    .appearance-quote {
+        margin-bottom: 30px;
+        padding: 8px 12px;
+    }
+
+    .appearance-quote p {
+        font-size: 16px;
+    }
+
+    .appearance-section-heading {
+        gap: 8px;
+    }
+
+    .appearance-section-heading h2 {
+        font-size: 18px;
+    }
+
+    .appearance-section-english {
+        font-size: 8px;
+    }
+
+    .appearance-gallery {
+        margin-bottom: 24px;
+    }
+
+    .appearance-image-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .appearance-image-card {
+        padding: 12px;
+    }
+
+    .appearance-image-main .appearance-image-frame {
+        min-height: 200px;
+    }
+
+    .appearance-image-card:not(.appearance-image-main)
+        .appearance-image-frame {
+        min-height: 180px;
+    }
+
+    .appearance-image {
+        max-height: 440px;
+    }
+
+    .appearance-section {
+        margin-top: 22px;
+        padding: 21px 17px;
+    }
+
+    .appearance-info-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .appearance-info-item {
+        grid-template-columns: minmax(100px, 0.8fr) minmax(0, 1.5fr);
+        gap: 12px;
+        padding: 13px 0;
+    }
+
+    .appearance-info-item dt {
+        font-size: 12px;
+    }
+
+    .appearance-info-item dd {
+        font-size: 13px;
+    }
+
+    .impression-content {
+        padding: 9px 18px;
+    }
+
+    .impression-content p {
+        font-size: 13px;
+        line-height: 2;
+    }
+
+    .appearance-footer {
+        padding-top: 25px;
+    }
+}
+
+/* ========================================
+   10. 작은 휴대전화
+   ======================================== */
+
+@media (max-width: 360px) {
+    .appearance-main {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .appearance-quote p {
+        font-size: 15px;
+    }
+
+    .appearance-section {
+        padding: 18px 13px;
+    }
+
+    .appearance-info-item {
+        grid-template-columns: 90px minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    .appearance-section-english {
+        width: 100%;
+        margin-left: 26px;
+    }
+}
+
+
+/* ========================================
+   편집 모드에서만 조작 버튼 표시
+======================================== */
+
+/* HTML에 hidden이 지정된 요소는 항상 숨김 */
+[hidden] {
+    display: none !important;
+}
+
+/* 항목 조작 버튼과 항목 추가 버튼은 기본적으로 숨김 */
+.personality-page .item-controls,
+.personality-page .add-item-button {
+    display: none;
+}
+
+/* 편집 모드에서만 표시 */
+.personality-page.is-editing .item-controls {
+    display: flex;
+}
+
+.personality-page.is-editing .add-item-button {
+    display: inline-flex;
+}

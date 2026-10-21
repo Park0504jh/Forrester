@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <script src="js/admin-access.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인물록 | 人物錄</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/record-viewer.css">
+  <script src="js/record-viewer.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+
+<body>
+  <div class="site-shell">
+
+    <!-- 상단 메뉴 -->
+    <header class="site-header">
+      <a href="index.html" class="brand">
+        <span class="brand-title">人物錄</span>
+        <span class="brand-seal">錄</span>
+      </a>
+
+      <button class="menu-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="main-nav">
+        ☰
+      </button>
+
+      <nav class="main-nav" id="main-nav">
+        <a class="active" href="index.html">서고</a>
+        <a class="user-link" href="admin.html" aria-label="관리자 로그인">♙</a>
+      </nav>
+    </header>
+
+    <main class="main-content">
+
+      <!-- 메인 타이틀 -->
+      <section class="intro">
+        <p class="english-label">PERSONAL CHARACTER ARCHIVE</p>
+        <h1>인물 기록</h1>
+        <p class="intro-subtitle">
+          한 사람의 삶과 이야기를 기록하다.
+        </p>
+      </section>
+
+      <!-- 대표 인물 -->
+      <section class="featured-character">
+
+        <div class="character-portrait">
+          <!-- 나중에 이미지 경로를 실제 초상화 파일로 변경 -->
+          <img
+            src="assets/character.jpg"
+            alt="대표 인물 청연의 초상화"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="portrait-fallback">
+            <span>人物</span>
+            <small>PORTRAIT</small>
+          </div>
+          <span class="portrait-corner corner-tl">❧</span>
+          <span class="portrait-corner corner-br">❧</span>
+        </div>
+
+        <div class="character-info">
+          <p class="english-label">NO. 001 · CHARACTER</p>
+
+          <h2>
+            한소 <span class="character-hanja">(靑淵)</span>
+          </h2>
+
+          <p class="character-meta">
+            별호 · 인화　·　연령 · 불명　·　종족 · 신궁
+          </p>
+
+          <p class="character-description">
+            달빛 아래 피어난 한 송이 꽃처럼,<br>
+            그는 조용하고, 그러나 단단하게 살아간다.
+          </p>
+
+          <div class="character-tags">
+            <span>오리지널</span>
+            <span>동양풍</span>
+            <span>인간계</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 기록 목차 -->
+      <section class="archive">
+
+        <div class="archive-heading">
+          <span class="heading-flower" aria-hidden="true">❉</span>
+          <h2>기록 목차</h2>
+        </div>
+
+        <nav class="archive-list" aria-label="인물 기록 목차">
+
+          <a href="profile.html" class="archive-item">
+            <span class="archive-number">01</span>
+            <span class="archive-text">
+              <strong>인적 사항</strong>
+              <small>이름 · 나이 · 성별 · 소속</small>
+            </span>
+            <span class="archive-arrow">›</span>
+          </a>
+
+          <a href="appearance.html" class="archive-item">
+            <span class="archive-number">02</span>
+            <span class="archive-text">
+              <strong>외형 기록</strong>
+              <small>외모 · 체형 · 복장 · 특징</small>
+            </span>
+            <span class="archive-arrow">›</span>
+          </a>
+
+          <a href="personality.html" class="archive-item">
+            <span class="archive-number">03</span>
+            <span class="archive-text">
+              <strong>성격과 특징</strong>
+              <small>성격 · 취향 · 습관 · 버릇</small>
+            </span>
+            <span class="archive-arrow">›</span>
+          </a>
+
+          <a href="story.html" class="archive-item">
+            <span class="archive-number">04</span>
+            <span class="archive-text">
+              <strong>생애와 서사</strong>
+              <small>과거 · 주요 사건 · 현재</small>
+            </span>
+            <span class="archive-arrow">›</span>
+          </a>
+
+          <a href="relationships.html" class="archive-item">
+            <span class="archive-number">05</span>
+            <span class="archive-text">
+              <strong>인물 관계</strong>
+              <small>관계 · 감정 · 개인 기록</small>
+            </span>
+            <span class="archive-arrow">›</span>
+          </a>
+
+        </nav>
+
+        <div class="archive-action">
+          <a href="profile.html" class="primary-button">
+            기록 열람하기 <span>→</span>
+          </a>
+        </div>
+
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>私人記錄 · PERSONAL ARCHIVE</p>
+    </footer>
+
+  </div>
+</body>
+</html>

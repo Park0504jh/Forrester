@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <script src="js/admin-access.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생애와 서사 | 인물록</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/record-viewer.css">
+    <link rel="stylesheet" href="css/story.css">
+    <link rel="stylesheet" href="css/inline-edit.css">
+
+    <script src="js/record-viewer.js" defer></script>
+    <script src="js/story-page-editor.js" defer></script>
+</head>
+
+<body>
+    <div class="site-shell story-page">
+
+        <header class="site-header">
+            <a href="index.html" class="site-title">
+                <span class="site-title-hanja">人物錄</span>
+                <span class="site-title-korean">인물록</span>
+            </a>
+
+            <nav class="main-nav" aria-label="주요 메뉴">
+                <a href="index.html">서고</a>
+                <a href="profile.html">인적 사항</a>
+                <a href="appearance.html">외형 기록</a>
+                <a href="personality.html">성격과 특징</a>
+                <a href="story.html" class="active" aria-current="page">생애와 서사</a>
+                <a href="relationships.html">인물 관계</a>
+            </nav>
+        </header>
+
+        <main class="story-main">
+
+            <!-- 페이지 제목 -->
+            <section class="story-heading">
+                <p class="story-eyebrow">人物記錄 · 第四章</p>
+                <h1>생애와 서사</h1>
+                <p class="story-heading-description">
+                    한 인물이 걸어온 길과 그 삶에 새겨진 사건을 기록하다.
+                </p>
+
+                <div class="story-title-decoration" aria-hidden="true">
+                    <span></span>
+                    <span>◆</span>
+                    <span></span>
+                </div>
+            </section>
+
+            <!-- 편집 도구 -->
+            <div class="page-edit-toolbar">
+                <span class="edit-status" id="edit-status">열람 모드</span>
+
+                <div class="edit-actions">
+                    <button type="button" id="edit-button" class="edit-button">
+                        ✎ 편집
+                    </button>
+
+                    <button type="button"
+                            id="cancel-button"
+                            class="edit-button secondary-edit-button"
+                            hidden>
+                        취소
+                    </button>
+
+                    <button type="button"
+                            id="save-button"
+                            class="edit-button save-edit-button"
+                            hidden>
+                        저장
+                    </button>
+                </div>
+            </div>
+
+            <!-- 一. 생애 기록 -->
+            <section class="story-section" aria-labelledby="biography-title">
+                <div class="story-section-heading">
+                    <span class="story-section-number">一</span>
+                    <h2 id="biography-title">생애 기록</h2>
+                    <span class="story-section-english">LIFE CHRONICLE</span>
+                </div>
+
+                <div class="story-prose">
+                    <p class="story-prose-intro"
+                       data-editable="biography-intro">
+                        한 인물이 태어나 지금에 이르기까지의 삶을 기록한다.
+                    </p>
+
+                    <div class="story-prose-body"
+                         data-editable="biography-body"
+                         data-multiline="true">출생과 가문, 어린 시절의 기억, 성장 과정에서 겪은 일들, 인물의 삶을 바꾸어 놓은 경험 등을 자유롭게 기록하세요.</div>
+                </div>
+            </section>
+
+            <!-- 二. 주요 사건 연표 -->
+            <section class="story-section" aria-labelledby="timeline-title">
+                <div class="story-section-heading">
+                    <span class="story-section-number">二</span>
+                    <h2 id="timeline-title">주요 사건 연표</h2>
+                    <span class="story-section-english">CHRONOLOGY</span>
+                </div>
+
+                <p class="story-section-description">
+                    삶의 흐름을 바꾼 사건을 시간순으로 기록한다.
+                </p>
+
+                <div class="story-timeline" id="timeline-list">
+
+                    <article class="timeline-entry">
+                        <div class="timeline-marker" aria-hidden="true"></div>
+
+                        <div class="timeline-card">
+                            <p class="timeline-date"
+                               data-editable="timeline-date">
+                                연도 또는 날짜
+                            </p>
+
+                            <h3 data-editable="timeline-title">사건의 이름</h3>
+
+                            <p class="timeline-description"
+                               data-editable="timeline-description"
+                               data-multiline="true">사건이 일어난 배경과 진행 과정, 인물에게 미친 영향을 기록하세요.</p>
+
+                            <button type="button"
+                                    class="story-remove-button"
+                                    data-remove-item
+                                    hidden>
+                                기록 삭제
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="story-add-area" id="timeline-add-area" hidden>
+                    <button type="button"
+                            class="story-add-button"
+                            id="add-timeline-button">
+                        ＋ 사건 추가
+                    </button>
+                </div>
+            </section>
+
+            <!-- 三. 비밀 -->
+            <section class="story-section" aria-labelledby="secrets-title">
+                <div class="story-section-heading">
+                    <span class="story-section-number">三</span>
+                    <h2 id="secrets-title">비밀</h2>
+                    <span class="story-section-english">HIDDEN TRUTHS</span>
+                </div>
+
+                <p class="story-section-description">
+                    감춰진 진실은 열람 코드를 입력해야 확인할 수 있다.
+                </p>
+
+                <!-- 열람 잠금 화면 -->
+                <div class="secret-lock-panel" id="secret-lock-panel">
+                    <span class="secret-lock-symbol" aria-hidden="true">秘</span>
+                    <h3>열람 불가</h3>
+                    <p>이 기록은 잠겨 있습니다.</p>
+
+                    <form class="secret-unlock-form" id="secret-unlock-form">
+
+                        <input
+                            type="password"
+                            id="secret-access-input"
+                            autocomplete="off"
+                            placeholder="열람 코드를 입력하세요"
+                        >
+
+                        <button type="submit" class="story-add-button">
+                            열람
+                        </button>
+                    </form>
+
+                    <p id="secret-lock-message"
+                       class="secret-lock-message"
+                       aria-live="polite"></p>
+                </div>
+
+                <!-- 열람 가능 상태 또는 편집 모드 -->
+                <div id="secret-content" hidden>
+    <div class="story-secrets" id="secret-list">
+    </div>
+
+    <div class="story-add-area" id="secret-add-area" hidden>
+        <button type="button"
+                class="story-add-button"
+                id="add-secret-button">
+            ＋ 비밀 추가
+        </button>
+    </div>
+</div>
+
+                <!-- 편집 모드에서 열람 코드 설정 -->
+                <div class="story-add-area secret-code-area" id="secret-code-area" hidden>
+                    <button type="button"
+                            class="story-add-button"
+                            id="set-secret-code-button">
+                        열람 코드 설정
+                    </button>
+                </div>
+            </section>
+
+            <!-- 추가 기록 도구 -->
+            <section class="record-viewer"
+                     data-record-page="story"
+                     hidden>
+            </section>
+
+            <!-- 페이지 하단 -->
+            <footer class="story-footer">
+                <div class="story-footer-rule"></div>
+                <p>人物錄 · 인물에 관한 기록</p>
+                <p class="story-footer-page">第四章 · 生涯與敘事</p>
+            </footer>
+
+        </main>
+    </div>
+</body>
+</html>

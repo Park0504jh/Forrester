@@ -1,0 +1,233 @@
+
+/* 인물록 추가 기록 표시 영역 */
+
+.record-viewer {
+    width: 100%;
+    margin: 42px auto 0;
+    color: #302a23;
+}
+
+.record-viewer[hidden] {
+    display: none !important;
+}
+
+.record-viewer-heading {
+    margin-bottom: 22px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #c9bba5;
+}
+
+.record-viewer-heading h2 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+}
+
+.record-viewer-heading p {
+    margin: 8px 0 0;
+    color: #827667;
+    font-size: .86rem;
+    line-height: 1.7;
+}
+
+.record-viewer-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.record-viewer-card {
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid #c9bba5;
+    background: #f8f3e9;
+    box-sizing: border-box;
+}
+
+.record-viewer-card-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ded2c0;
+}
+
+.record-viewer-card-heading h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.record-viewer-type {
+    color: #843d32;
+    font-size: .78rem;
+    white-space: nowrap;
+}
+
+.record-viewer-content {
+    margin-top: 16px;
+    min-width: 0;
+    font-size: .93rem;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.record-viewer-paragraph {
+    white-space: normal;
+}
+
+.record-viewer-muted {
+    margin: 0;
+    color: #827667;
+    font-size: .88rem;
+}
+
+.record-viewer-table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.record-viewer-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+.record-viewer-table th,
+.record-viewer-table td {
+    padding: 10px 12px;
+    border: 1px solid #c9bba5;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.record-viewer-table th {
+    background: #eee4d2;
+    font-weight: 600;
+}
+
+.record-viewer-stat {
+    margin-bottom: 17px;
+}
+
+.record-viewer-stat:last-child {
+    margin-bottom: 0;
+}
+
+.record-viewer-stat-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 7px;
+    font-size: .9rem;
+}
+
+.record-viewer-stat-track {
+    height: 8px;
+    overflow: hidden;
+    background: #e2d7c5;
+}
+
+.record-viewer-stat-fill {
+    height: 100%;
+    background: #843d32;
+}
+
+.record-viewer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.record-viewer-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid #c9bba5;
+    color: #843d32;
+    font-size: .85rem;
+    line-height: 1.7;
+}
+
+.record-viewer-image-content img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 480px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.record-viewer-caption {
+    margin: 12px 0 0;
+    color: #827667;
+    text-align: center;
+    font-size: .86rem;
+    line-height: 1.8;
+}
+
+.record-viewer-timeline {
+    border-left: 2px solid #c9bba5;
+    margin-left: 5px;
+    padding-left: 18px;
+}
+
+.record-viewer-event {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.record-viewer-event:last-child {
+    margin-bottom: 0;
+}
+
+.record-viewer-event::before {
+    content: "";
+    position: absolute;
+    left: -24px;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #843d32;
+}
+
+.record-viewer-event time {
+    color: #843d32;
+    font-size: .84rem;
+}
+
+.record-viewer-event h4 {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+.record-viewer-event p {
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .record-viewer {
+        margin-top: 32px;
+    }
+
+    .record-viewer-list {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .record-viewer-card {
+        padding: 17px;
+    }
+
+    .record-viewer-table th,
+    .record-viewer-table td {
+        padding: 8px;
+        font-size: .85rem;
+    }
+}

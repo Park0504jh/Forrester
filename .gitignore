@@ -1,0 +1,18 @@
+
+# Node.js 패키지
+node_modules/
+
+# 데이터베이스 및 SQLite 임시 파일
+**/inmulrok.sqlite*
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+
+# 비밀 설정 파일
+.env
+.env.*
+!.env.example
+
+# 로그 파일
+*.log
+npm-debug.log*

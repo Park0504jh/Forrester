@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <script src="js/admin-access.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기록 편집 | 인물록</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/editor.css">
+    <link rel="stylesheet" href="css/record-viewer.css">
+    <script src="js/record-viewer.js" defer></script>
+    <script src="js/editor.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="site-logo">
+                <span class="logo-title">人物錄</span>
+                <span class="logo-subtitle">인물록</span>
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">서고</a>
+                <a href="profile.html">인적 사항</a>
+                <a href="appearance.html">외형 기록</a>
+                <a href="personality.html">성격과 특징</a>
+                <a href="story.html">생애와 서사</a>
+                <a href="relationships.html">인물 관계</a>
+                <a href="edit.html" class="active">기록 편집</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="editor-page">
+        <section class="editor-heading">
+            <p class="editor-eyebrow">記錄編輯 · RECORD EDITOR</p>
+            <h1>기록 편집</h1>
+            <p>필요한 항목을 만들고, 원하는 방식으로 인물을 기록한다.</p>
+        </section>
+
+        <section class="editor-toolbar">
+            <div class="editor-character">
+                <label for="characterName">인물 이름</label>
+                <input id="characterName" type="text" placeholder="인물 이름 입력">
+            </div>
+
+            <div class="editor-page-select">
+                <label for="pageSelect">기록 페이지</label>
+                <select id="pageSelect">
+                    <option value="profile">인적 사항</option>
+                    <option value="appearance">외형 기록</option>
+                    <option value="personality">성격과 특징</option>
+                    <option value="story">생애와 서사</option>
+                    <option value="relationships">인물 관계</option>
+                </select>
+            </div>
+
+            <div class="editor-actions">
+                <button id="saveButton" type="button">저장</button>
+                <button id="exportButton" type="button" class="secondary-button">
+                    JSON 백업
+                </button>
+                <button id="importButton" type="button" class="secondary-button">
+                    JSON 복원
+                </button>
+                <input id="importFile" type="file" accept=".json,application/json" hidden>
+            </div>
+        </section>
+
+        <div id="saveStatus" class="editor-status" role="status">
+            이 브라우저에 저장할 수 있습니다.
+        </div>
+
+        <section class="editor-workspace">
+            <div class="editor-list-heading">
+                <div>
+                    <h2>기록 목록</h2>
+                    <p>칸마다 다른 형태를 사용할 수 있습니다.</p>
+                </div>
+                <button id="addBlockButton" type="button">＋ 기록 칸 추가</button>
+            </div>
+
+            <div id="blockList" class="editor-block-list"></div>
+
+            <div id="emptyState" class="editor-empty" hidden>
+                <p>아직 기록 칸이 없습니다.</p>
+                <p>위의 ‘기록 칸 추가’를 눌러 새로운 항목을 만들어 보세요.</p>
+            </div>
+        </section>
+
+        <section id="blockFormPanel" class="editor-form-panel" hidden>
+            <div class="editor-form-heading">
+                <h2 id="formHeading">기록 칸 추가</h2>
+                <button id="closeFormButton" type="button"
+                        class="secondary-button">닫기</button>
+            </div>
+
+            <form id="blockForm">
+                <input id="blockId" type="hidden">
+
+                <label for="blockTitle">칸 제목</label>
+                <input id="blockTitle" type="text" required
+                       placeholder="예: 성격 및 내면">
+
+                <label for="blockType">기록 유형</label>
+                <select id="blockType">
+                    <option value="paragraph">줄글 및 설명</option>
+                    <option value="table">행과 열이 있는 표</option>
+                    <option value="stats">수치와 능력치 막대</option>
+                    <option value="keywords">키워드 및 태그</option>
+                    <option value="image">이미지와 설명</option>
+                    <option value="timeline">날짜별 사건 기록</option>
+                </select>
+
+                <div id="typeFields"></div>
+
+                <div class="editor-form-actions">
+                    <button type="submit">기록 칸 적용</button>
+                    <button id="cancelFormButton" type="button"
+                            class="secondary-button">취소</button>
+                </div>
+            </form>
+        </section>
+
+        <footer class="editor-footer">
+            <p>人物錄 · 기록은 쌓이고, 인물은 완성된다.</p>
+        </footer>
+    </main>
+</body>
+</html>

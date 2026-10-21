@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <script src="js/admin-access.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>외형 기록 | 인물록</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/record-viewer.css">
+    <link rel="stylesheet" href="css/appearance.css">
+    <link rel="stylesheet" href="css/inline-edit.css">
+
+    <script src="js/record-viewer.js" defer></script>
+    <script src="js/appearance-page-editor.js" defer></script>
+</head>
+
+<body>
+    <div class="site-shell appearance-page">
+
+        <header class="site-header">
+            <a href="index.html" class="site-title">
+                <span class="site-title-hanja">人物錄</span>
+                <span class="site-title-korean">인물록</span>
+            </a>
+
+            <nav class="main-nav" aria-label="주요 메뉴">
+                <a href="index.html">서고</a>
+                <a href="profile.html">인적 사항</a>
+                <a href="appearance.html" class="active" aria-current="page">외형 기록</a>
+                <a href="personality.html">성격과 특징</a>
+                <a href="story.html">생애와 서사</a>
+                <a href="relationships.html">인물 관계</a>
+            </nav>
+        </header>
+
+        <main class="appearance-main">
+
+            <!-- 페이지 제목 -->
+            <section class="appearance-heading">
+                <p class="appearance-eyebrow">人物記錄 · 第二章</p>
+                <h1>외형 기록</h1>
+                <p class="appearance-heading-description">
+                    눈에 보이는 모습과 그 안에 남겨진 특징을 기록하다.
+                </p>
+
+                <div class="appearance-title-decoration" aria-hidden="true">
+                    <span></span>
+                    <span>◆</span>
+                    <span></span>
+                </div>
+            </section>
+
+            <!-- 페이지 편집 도구 -->
+            <div class="page-edit-toolbar">
+                <span class="edit-status" id="edit-status">열람 모드</span>
+
+                <div class="edit-actions">
+                    <button type="button" id="edit-button" class="edit-button">
+                        ✎ 편집
+                    </button>
+
+                    <button type="button" id="cancel-button"
+                            class="edit-button secondary-edit-button" hidden>
+                        취소
+                    </button>
+
+                    <button type="button" id="save-button"
+                            class="edit-button save-edit-button" hidden>
+                        저장
+                    </button>
+                </div>
+            </div>
+
+            <!-- 외형 도감 -->
+            <section class="appearance-gallery" aria-labelledby="gallery-title">
+
+                <div class="appearance-section-heading">
+                    <span class="appearance-section-number">一</span>
+                    <h2 id="gallery-title">외형 도감</h2>
+                    <span class="appearance-section-english">VISUAL ARCHIVE</span>
+                </div>
+
+                <div class="appearance-image-grid">
+
+                    <!-- 대표 이미지 -->
+                    <figure class="appearance-image-card appearance-image-main">
+                        <div class="appearance-image-frame">
+                            <img
+                                src="assets/appearance-main.jpg"
+                                alt="인물의 대표 외형 이미지"
+                                class="appearance-image"
+                                data-editable-image="main"
+                            >
+                        </div>
+
+                        <figcaption>
+                            <span class="image-caption-title"
+                                  data-editable="main-image-title">대표 외형</span>
+                            <span class="image-caption-description"
+                                  data-editable="main-image-description">
+                                인물의 전체적인 모습
+                            </span>
+                        </figcaption>
+
+                        <div class="image-edit-controls" hidden>
+                            <label class="edit-button image-select-button">
+                                이미지 선택
+                                <input type="file"
+                                       accept="image/png,image/jpeg,image/gif,image/webp"
+                                       data-image-upload="main"
+                                       hidden>
+                            </label>
+                        </div>
+                    </figure>
+
+                    <!-- 복장 이미지 -->
+                    <figure class="appearance-image-card">
+                        <div class="appearance-image-frame">
+                            <img
+                                src="assets/appearance-outfit.jpg"
+                                alt="인물의 복장과 장신구 이미지"
+                                class="appearance-image"
+                                data-editable-image="outfit"
+                            >
+                        </div>
+
+                        <figcaption>
+                            <span class="image-caption-title"
+                                  data-editable="outfit-image-title">
+                                복장과 장신구
+                            </span>
+                            <span class="image-caption-description"
+                                  data-editable="outfit-image-description">
+                                의상과 주요 소지품
+                            </span>
+                        </figcaption>
+
+                        <div class="image-edit-controls" hidden>
+                            <label class="edit-button image-select-button">
+                                이미지 선택
+                                <input type="file"
+                                       accept="image/png,image/jpeg,image/gif,image/webp"
+                                       data-image-upload="outfit"
+                                       hidden>
+                            </label>
+                        </div>
+                    </figure>
+
+                </div>
+            </section>
+
+            <!-- 기본 외형 -->
+            <section class="appearance-section" aria-labelledby="features-title">
+
+                <div class="appearance-section-heading">
+                    <span class="appearance-section-number">二</span>
+                    <h2 id="features-title">기본 외형</h2>
+                    <span class="appearance-section-english">PHYSICAL FEATURES</span>
+                </div>
+
+                <dl class="appearance-info-grid">
+
+                    <div class="appearance-info-item">
+                        <dt>머리카락 색</dt>
+                        <dd data-editable="hair-color">머리카락 색상 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>머리카락 길이</dt>
+                        <dd data-editable="hair-length">머리카락 길이 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>머리 모양</dt>
+                        <dd data-editable="hair-style">머리 모양 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>눈동자 색</dt>
+                        <dd data-editable="eye-color">눈동자 색상 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>눈매</dt>
+                        <dd data-editable="eye-shape">눈매 특징 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>피부색</dt>
+                        <dd data-editable="skin-color">피부색 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>얼굴 특징</dt>
+                        <dd data-editable="face-features">얼굴의 특징 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>목소리</dt>
+                        <dd data-editable="voice">목소리의 특징 입력</dd>
+                    </div>
+
+                </dl>
+            </section>
+
+            <!-- 신체적 특징 -->
+            <section class="appearance-section" aria-labelledby="body-title">
+
+                <div class="appearance-section-heading">
+                    <span class="appearance-section-number">三</span>
+                    <h2 id="body-title">신체적 특징</h2>
+                    <span class="appearance-section-english">BODY DETAILS</span>
+                </div>
+
+                <dl class="appearance-info-grid">
+
+                    <div class="appearance-info-item">
+                        <dt>체형</dt>
+                        <dd data-editable="body-shape">체형 특징 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>자세와 걸음걸이</dt>
+                        <dd data-editable="posture">자세와 걸음걸이 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>흉터</dt>
+                        <dd data-editable="scars">흉터의 위치와 모양 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>점 · 문신</dt>
+                        <dd data-editable="marks">점이나 문신의 특징 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>특이 사항</dt>
+                        <dd data-editable="special-features">그 밖의 신체적 특징 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>기타</dt>
+                        <dd data-editable="body-other">추가 특징 입력</dd>
+                    </div>
+
+                </dl>
+            </section>
+
+            <!-- 복장과 장신구 -->
+            <section class="appearance-section" aria-labelledby="outfit-title">
+
+                <div class="appearance-section-heading">
+                    <span class="appearance-section-number">四</span>
+                    <h2 id="outfit-title">복장과 장신구</h2>
+                    <span class="appearance-section-english">CLOTHING & ACCESSORIES</span>
+                </div>
+
+                <dl class="appearance-info-grid">
+
+                    <div class="appearance-info-item">
+                        <dt>주요 복장</dt>
+                        <dd data-editable="main-outfit">평소에 즐겨 입는 옷 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>복장 색상</dt>
+                        <dd data-editable="outfit-colors">주요 색상과 배색 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>복장 특징</dt>
+                        <dd data-editable="outfit-features">옷의 형태와 장식 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>장신구</dt>
+                        <dd data-editable="accessories">반지, 목걸이 등의 특징 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>주요 소지품</dt>
+                        <dd data-editable="belongings">항상 가지고 다니는 물건 입력</dd>
+                    </div>
+
+                    <div class="appearance-info-item">
+                        <dt>기타 복장</dt>
+                        <dd data-editable="other-outfits">전투복이나 특별한 의상 입력</dd>
+                    </div>
+
+                </dl>
+            </section>
+
+            <!-- 전체적인 인상 -->
+            <section class="appearance-section impression-section"
+                     aria-labelledby="impression-title">
+
+                <div class="appearance-section-heading">
+                    <span class="appearance-section-number">五</span>
+                    <h2 id="impression-title">전체적인 인상</h2>
+                    <span class="appearance-section-english">GENERAL IMPRESSION</span>
+                </div>
+
+                <div class="impression-content">
+                    <span class="impression-mark" aria-hidden="true">「</span>
+
+                    <p data-editable="impression">
+                        처음 마주했을 때 느껴지는 분위기, 외모에서 두드러지는 특징,
+                        표정과 몸짓에서 드러나는 인상 등을 자유롭게 기록하세요.
+                    </p>
+
+                    <span class="impression-mark impression-mark-end"
+                          aria-hidden="true">」</span>
+                </div>
+            </section>
+
+            <!-- 편집기에서 작성한 추가 기록 -->
+            <section class="record-viewer"
+                     data-record-page="appearance"
+                     hidden>
+            </section>
+
+            <!-- 페이지 하단 -->
+            <footer class="appearance-footer">
+                <div class="appearance-footer-rule"></div>
+                <p>人物錄 · 인물에 관한 기록</p>
+                <p class="appearance-footer-page">第二章 · 外形</p>
+            </footer>
+
+        </main>
+    </div>
+</body>
+</html>

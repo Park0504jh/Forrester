@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <script src="js/admin-access.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인적 사항 | 인물록</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/record-viewer.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/inline-edit.css">
+
+    <script src="js/record-viewer.js" defer></script>
+    <script src="js/profile-page-editor.js" defer></script>
+</head>
+
+<body>
+    <div class="site-shell profile-page">
+
+        <header class="site-header">
+            <a href="index.html" class="site-title">
+                <span class="site-title-hanja">人物錄</span>
+                <span class="site-title-korean">인물록</span>
+            </a>
+
+            <nav class="main-nav" aria-label="주요 메뉴">
+                <a href="index.html">서고</a>
+                <a href="profile.html" class="active" aria-current="page">인적 사항</a>
+                <a href="appearance.html">외형 기록</a>
+                <a href="personality.html">성격과 특징</a>
+                <a href="story.html">생애와 서사</a>
+                <a href="relationships.html">인물 관계</a>
+            </nav>
+        </header>
+
+        <main class="profile-main">
+
+            <!-- 대표 문구 -->
+            <section class="signature-section" aria-label="대표 문구">
+                <span class="signature-quote signature-open" aria-hidden="true">“</span>
+
+                <p class="signature-text"
+                   data-editable="signature">
+                    이곳에 인물의 대표 대사를 입력하세요.
+                </p>
+
+                <span class="signature-quote signature-close" aria-hidden="true">”</span>
+            </section>
+
+            <!-- 페이지 제목 -->
+            <section class="profile-heading">
+                <p class="profile-eyebrow">人物記錄 · 第一章</p>
+
+                <h1>인적 사항</h1>
+
+                <p class="profile-heading-description">
+                    한 인물의 이름과 흔적을 기록하다.
+                </p>
+
+                <div class="profile-title-decoration" aria-hidden="true">
+                    <span></span>
+                    <span class="decoration-diamond">◆</span>
+                    <span></span>
+                </div>
+            </section>
+
+            <!-- 페이지 편집 도구 -->
+            <div class="page-edit-toolbar">
+                <span class="edit-status" id="edit-status">열람 모드</span>
+
+                <div class="edit-actions">
+                    <button type="button" id="edit-button" class="edit-button">
+                        ✎ 편집
+                    </button>
+
+                    <button type="button" id="cancel-button"
+                            class="edit-button secondary-edit-button" hidden>
+                        취소
+                    </button>
+
+                    <button type="button" id="save-button"
+                            class="edit-button save-edit-button" hidden>
+                        저장
+                    </button>
+                </div>
+            </div>
+
+            <!-- 인물 도감 -->
+            <section class="character-dossier" aria-labelledby="character-name">
+
+                <!-- 초상화 -->
+                <div class="portrait-column">
+                    <div class="portrait-frame">
+                        <img
+                            src="assets/character.jpg"
+                            alt="인물 초상화"
+                            class="profile-portrait"
+                            id="profile-portrait"
+                        >
+
+                        <span class="portrait-corner portrait-corner-tl"></span>
+                        <span class="portrait-corner portrait-corner-tr"></span>
+                        <span class="portrait-corner portrait-corner-bl"></span>
+                        <span class="portrait-corner portrait-corner-br"></span>
+                    </div>
+
+                    <p class="portrait-caption">人物肖像 · 인물 초상</p>
+
+                    <div class="portrait-seal" aria-label="인물록 기록">
+                        <span>人物</span>
+                        <span>錄</span>
+                    </div>
+
+                    <div class="image-edit-controls" hidden>
+                        <label for="portrait-upload" class="edit-button image-select-button">
+                            이미지 선택
+                        </label>
+                        <input
+                            type="file"
+                            id="portrait-upload"
+                            accept="image/png,image/jpeg,image/gif,image/webp"
+                            hidden
+                        >
+                        <p>PNG, JPG, GIF, WEBP</p>
+                    </div>
+                </div>
+
+                <!-- 인물 정보 -->
+                <div class="character-information">
+
+                    <div class="character-name-block">
+                        <p class="section-kicker">CHARACTER RECORD No. 001</p>
+
+                        <h2 id="character-name"
+                            class="character-name"
+                            data-editable="name">
+                            이름을 입력하세요
+                        </h2>
+
+                        <p class="character-hanja">
+                            <span class="field-label">漢字</span>
+                            <span data-editable="hanja">한자명을 입력하세요</span>
+                        </p>
+
+                        <div class="name-divider"></div>
+
+                        <p class="character-epithet">
+                            <span class="field-label">別號</span>
+                            <span data-editable="epithet">별호 또는 호칭을 입력하세요</span>
+                        </p>
+                    </div>
+
+                    <!-- 기본 정보 -->
+                    <section class="basic-information"
+                             aria-labelledby="basic-info-title">
+
+                        <div class="section-heading">
+                            <span class="section-number">一</span>
+                            <h3 id="basic-info-title">기본 정보</h3>
+                            <span class="section-heading-english">
+                                BASIC INFORMATION
+                            </span>
+                        </div>
+
+                        <dl class="information-list">
+
+                            <div class="information-item">
+                                <dt>나이</dt>
+                                <dd data-editable="age">나이 입력</dd>
+                            </div>
+
+                            <div class="information-item">
+                                <dt>생일</dt>
+                                <dd data-editable="birthday">생일 입력</dd>
+                            </div>
+
+                            <div class="information-item">
+                                <dt>성별</dt>
+                                <dd data-editable="gender">성별 입력</dd>
+                            </div>
+
+                            <div class="information-item">
+                                <dt>종족</dt>
+                                <dd data-editable="species">종족 입력</dd>
+                            </div>
+
+                            <div class="information-item">
+                                <dt>신장</dt>
+                                <dd data-editable="height">신장 입력</dd>
+                            </div>
+
+                            <div class="information-item">
+                                <dt>체형</dt>
+                                <dd data-editable="body-type">체형 입력</dd>
+                            </div>
+
+                            <div class="information-item">
+                                <dt>소속</dt>
+                                <dd data-editable="faction">소속 입력</dd>
+                            </div>
+
+                            <div class="information-item">
+                                <dt>직업</dt>
+                                <dd data-editable="occupation">직업 입력</dd>
+                            </div>
+
+                            <div class="information-item">
+                                <dt>신분</dt>
+                                <dd data-editable="status">신분 입력</dd>
+                            </div>
+
+                            <div class="information-item">
+                                <dt>직위</dt>
+                                <dd data-editable="position">직위 입력</dd>
+                            </div>
+
+                        </dl>
+                    </section>
+                </div>
+            </section>
+
+            <!-- 인물 소개 -->
+            <section class="profile-section introduction-section"
+                     aria-labelledby="introduction-title">
+
+                <div class="section-heading">
+                    <span class="section-number">二</span>
+                    <h2 id="introduction-title">인물 소개</h2>
+                    <span class="section-heading-english">INTRODUCTION</span>
+                </div>
+
+                <div class="introduction-content">
+                    <span class="opening-mark" aria-hidden="true">「</span>
+
+                    <p data-editable="introduction">
+                        이곳에 인물의 전반적인 소개를 작성하세요.
+                        성격과 분위기, 살아온 배경, 타인에게 비치는 모습 등
+                        이 인물을 설명하는 내용을 자유롭게 기록할 수 있습니다.
+                    </p>
+
+                    <span class="closing-mark" aria-hidden="true">」</span>
+                </div>
+            </section>
+
+            <!-- 편집 페이지에서 작성한 추가 기록 -->
+            <section class="record-viewer"
+                     data-record-page="profile"
+                     hidden>
+            </section>
+
+            <!-- 페이지 하단 -->
+            <footer class="profile-footer">
+                <div class="footer-rule"></div>
+                <p>人物錄 · 인물에 관한 기록</p>
+                <p class="footer-page-number">第一章 · 人物</p>
+            </footer>
+
+        </main>
+    </div>
+</body>
+</html>
