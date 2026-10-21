@@ -1,16 +1,24 @@
 
 const express = require("express");
 const session = require("express-session");
+const SQLiteStore = require("connect-sqlite3")(session);
 const bcrypt = require("bcryptjs");
 const Database = require("better-sqlite3");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const path = require("path");
+const fs = require("fs");
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 const ROOT_DIR = path.join(__dirname, "..");
-const DB_PATH = path.join(__dirname, "inmulrok.sqlite");
+
+// 배포 시 DATA_DIR=/data로 지정하면 영구 저장 공간 사용
+const DATA_DIR = process.env.DATA_DIR || __dirname;
+
+fs.mkdirSync(DATA_DIR, { recursive: true });
+
+const DB_PATH = path.join(DATA_DIR, "inmulrok.sqlite");
 
 if (!process.env.SESSION_SECRET) {
     console.error(
@@ -165,6 +173,10 @@ app.use((req, res, next) => {
 });
 
 app.use(session({
+    store: new SQLiteStore({
+        dir: DATA_DIR,
+        db: "sessions.sqlite"
+    }),
     name: "inmulrok.sid",
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -679,6 +691,6 @@ app.use((error, req, res, next) => {
     });
 });
 
-app.listen(PORT, "127.0.0.1", () => {
-    console.log(`인물록 서버: http://127.0.0.1:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`인물록 서버 실행 완료: 포트 ${PORT}`);
 });
